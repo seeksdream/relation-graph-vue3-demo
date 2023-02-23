@@ -3,7 +3,7 @@
     <div style="border: #efefef solid 1px; height: calc(100vh - 100px);width: 100%;">
       <relation-graph ref="relationGraph$" :options="options">
         <template #node="{node}">
-          <button>{{node.text}}</button>
+          <div style="padding-top:20px;">节点：{{node.text}}</div>
         </template>
       </relation-graph>
     </div>
@@ -12,34 +12,36 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import RelationGraph from 'relation-graph/vue3'
-import RelationGraphElement from "relation-graph";
-const relationGraph$ = ref<RelationGraphElement>()
+import RelationGraph, {RGJsonData} from 'relation-graph/vue3'
+const relationGraph$ = ref<RelationGraph>()
 const options = {
   defaultExpandHolderPosition: 'right',
-  defaultLineShape: 4,
+  // defaultLineShape: 4,
   debug: true,
   showDebugPanel: true,
 }
 onMounted(() => {
-  const jsonData = {
-    rootId: 'a',
+  const graphJsonData:RGJsonData = {
+    rootId: 'N3',
     nodes: [
-      { id: 'a', text: 'a', },
-      { id: 'b', text: 'b', },
-      { id: 'c', text: 'c', },
-      { id: 'd', text: 'd', },
-      { id: 'e', text: 'e', },
-      { id: 'f', text: 'f', },
+      { id: 'N4', text: '十4' },
+      { id: 'N5', text: '十5' },
+      { id: 'N6', text: '十6' },
+      { id: 'N7', text: '十7' },
+      { id: 'N3', text: '十三' },
+      { id: 'N9', text: '152****3393' },
     ],
     lines: [
-      { from: 'a', to: 'b', },
-      { from: 'a', to: 'c', },
-      { from: 'a', to: 'd', },
-      { from: 'a', to: 'e', },
-      { from: 'a', to: 'f', },
+      { from: 'N3', to: 'N9', text: '分享' },
+      { from: 'N3', to: 'N4', text: '分享444' },
+      { from: 'N3', to: 'N5', text: '分享555' },
+      { from: 'N3', to: 'N6', text: '分享666' },
+      { from: 'N3', to: 'N7', text: '分享777' },
+      { from: 'N9', to: 'N4', text: '分享x' }
     ],
-  }
-  relationGraph$.value.setJsonData(jsonData)
+  };
+  relationGraph$.value.setJsonData(graphJsonData, () => {
+    console.log('relationGraph ready!');
+  })
 })
 </script>
