@@ -325,10 +325,10 @@ postcss@^8.1.10, postcss@^8.4.21:
     picocolors "^1.0.0"
     source-map-js "^1.0.2"
 
-relation-graph@2.1.5:
-  version "2.1.5"
-  resolved "https://registry.npmjs.org/relation-graph/-/relation-graph-2.1.5.tgz#1d470f70bfbcdad1bb0bd73e598b57311865568c"
-  integrity sha512-hvzixihkdr2j4rdQ5K9iptk7cC5jx5161Z30ZCYtwd0ghNu48pTeqx8XlQARYN+R6jHJfjh6QynQCrXmfyEg6g==
+relation-graph@2.1.6:
+  version "2.1.6"
+  resolved "https://registry.npmjs.org/relation-graph/-/relation-graph-2.1.6.tgz#d126031907133f93a9ab00dc69f56096a995ce9c"
+  integrity sha512-ndEyCZtsWuikkv3OpS8UeeQ9Y0L0PXqQDsgRjzzZ8ImzaPaoUYS9hpDR4y/TAE/ZbjxZvFFpjLsqeO6N63DdLA==
   dependencies:
     html2canvas "^1.4.1"
     screenfull "^5.1.0"
