@@ -1,24 +1,28 @@
 <template>
   <div>
     <div style="border: #efefef solid 1px; height: calc(100vh - 100px);width: 100%;">
-      <relation-graph ref="relationGraph$" :options="options">
+      <RelationGraph ref="relationGraph$" :options="options" :on-node-click="onNodeClick">
         <template #node="{node}">
           <div style="padding-top:20px;">节点：{{node.text}}</div>
         </template>
-      </relation-graph>
+      </RelationGraph>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue'
-import RelationGraph, {RGJsonData} from 'relation-graph/vue3'
+import RelationGraph, {RGJsonData, RGNode, RGUserEvent} from 'relation-graph/vue3'
 const relationGraph$ = ref<RelationGraph>()
 const options = {
   defaultExpandHolderPosition: 'right',
   // defaultLineShape: 4,
   debug: true,
   showDebugPanel: true,
+}
+const onNodeClick = (node:RGNode, e: RGUserEvent) => {
+  console.log('onNodeClick:', node.id);
+  return true;
 }
 onMounted(() => {
   const graphJsonData:RGJsonData = {
